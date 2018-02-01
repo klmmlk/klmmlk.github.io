@@ -16,7 +16,7 @@ before_install:
   - ssh-add ~/.ssh/id_rsa
   - cp .travis/ssh_config ~/.ssh/config
   - npm install -g hexo-cli # 安装 hexo
-  - git clone -b mod https://github.com/quentin-chen/hexo-theme-even.git themes/even
+  - git clone -b mod https://github.com/theme-next/hexo-theme-next.git themes/next
 install:
   - npm install # 安装 package.json 中的插件
 script:
