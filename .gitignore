@@ -7,4 +7,4 @@ themes/
 node_modules/
 .md_configs.data
 .me_configs.data
-source/_posts/.Archive/
+.Archive/
