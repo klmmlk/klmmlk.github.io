@@ -22,6 +22,7 @@ install:
 script:
   - hexo generate
 after_success:
+ - ls -a
   - git config --global user.name "klmmlk"
   - git config --global user.email "jiong-lin@live.com"
   - sed -i'' "/^ *repo/s~github\.com~${githubToken}@github.com~" _config.yml
