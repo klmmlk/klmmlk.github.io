@@ -6,9 +6,9 @@ install:
   - npm install
 
 
-#before_script:
+before_script:
  # - npm install -g gulp
-
+- git clone https://github.com/theme-next/hexo-theme-next themes/next
 script:
   - hexo g
 
