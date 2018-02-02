@@ -19,7 +19,7 @@ after_script:
   - git config user.email "jiong-lin@live.com"
   - git add .
   - git commit -m "Update docs"
-  - git push --force --quiet "https://${githubblog}@${GH_REF}" master:master
+  - git push --force --quiet "https://${github}@${GH_REF}" master:master
 # E: Build LifeCycle
 
 branches:
