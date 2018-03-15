@@ -11,6 +11,7 @@ install:
    
 script:
   - git clone https://github.com/klmmlk/hexo-theme-next themes/next
+  - git clone https://github.com/DIYgod/hexo-theme-sagiri themes/sagiri
   - hexo g
 
 after_script:
