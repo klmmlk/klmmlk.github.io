@@ -4,6 +4,10 @@ date: 2015-05-08 11:15
 tags:
     - 设计
 ---
+
+
+转自Gooooood
+
 安静简约的日本文化或许与巴西热闹繁荣的文化相互对立，但是在Ikibana餐厅这个项目中，西班牙建筑师试图在这两者之间找到共存之处。在南欧的他们--理解日本文化拥有郁郁葱葱的景观，而巴西则充满艳丽活泼的色彩。设计师将日本的插花艺术转化，用木材，树叶，鲜花打造出轻盈动感的沿窗植物区。然后用朦胧的段式玻璃将其隔开，内部区域使用了木材打造的流体空间。木片在天花上蜿蜒至墙面。主要的岛式吧台区和岛式座位区界定了餐厅的交通。备具动感的花瓣状桌面五彩缤纷，此外，设计师也不忘了在窗户处的插花艺术上点缀巴西那鲜艳的热带色彩！
 
 Japan and Brazil are two cultures that seem antagonistic: quiet and minimalist the first, exuberant and bustling the second. The IKIBANA restaurant offers a fusion of their gastronomies while its design tries to extol some of its shared singularities as well.
