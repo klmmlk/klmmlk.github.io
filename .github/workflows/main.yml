@@ -22,11 +22,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@main # If you're using actions/checkout@v2 - must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
 
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v1
-      #   with:
-      #     node-version: "14"
+      - name: Use Node.js
+        uses: actions/setup-node@v2.1.0
+        with:
+          node-version: "14"
           
       # # 缓存 node_modules
       # - name: Cache dependencies
@@ -47,10 +51,7 @@ jobs:
       # - name: Install and Build
       #   run: |
       #     yarn docs:build
-      - name: Checkout
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 - must set persist-credentials to false in most cases for the deployment to work correctly.
-        with:
-          persist-credentials: false
+
 
       - name: Install and Build
         run: |
