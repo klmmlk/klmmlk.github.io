@@ -1,0 +1,15 @@
+{
+  "name": "klmmlk.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:klmmlk/klmmlk.github.io.git",
+  "author": "klmmlk <jiong-lin@live.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  }
+}
