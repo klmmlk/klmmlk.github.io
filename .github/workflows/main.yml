@@ -41,7 +41,11 @@ jobs:
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
- 
+
+      # 如果缓存没有命中，安装依赖，根据实际来改，也可以是npm，这里是用的yarn
+      - name: 构建静态文件
+        run: yarn docs:build
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
