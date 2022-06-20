@@ -44,6 +44,10 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
  
+      - name: Install and Build
+        run: |
+          yarn docs:build
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
