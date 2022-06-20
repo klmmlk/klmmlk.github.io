@@ -44,9 +44,9 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn
  
-      - name: Install and Build
-        run: |
-          yarn docs:build
+      # - name: Install and Build
+      #   run: |
+      #     yarn docs:build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -56,3 +56,4 @@ jobs:
           BRANCH: gh-pages
           # 部署目录为 VuePress 的默认输出目录，这里需要根据项目的目录进行修改
           FOLDER: docs/.vuepress/dist
+          BUILD_SCRIPT: yarn docs:build && cd -
