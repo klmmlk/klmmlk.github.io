@@ -19,7 +19,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@main
+      - uses: actions/checkout@v2
+        with:
+          ref: 'main'
 
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -55,7 +57,8 @@ jobs:
       #     BRANCH: gh-pages
       #     # 部署目录为 VuePress 的默认输出目录，这里需要根据项目的目录进行修改
       #     FOLDER: dist
-      ## deploy to tencent cos
+
+      # deploy to tencent cos
       - name: 部署到腾讯 COS
         env:
           SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
@@ -64,5 +67,5 @@ jobs:
           REGION: ap-chengdu
         run: |
           sudo pip install coscmd
-          coscmd config -a ${{ secrets.TENCENT_SECRET_ID }} -s ${{ secrets.TENCENT_SECRET_KEY }} -b ${{ secrets.TENCENT_COS_BUCKET }} -r ap-chengdu
+          coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
           coscmd upload -rs --delete ./dist/ / -f
