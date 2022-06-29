@@ -67,5 +67,5 @@ jobs:
           REGION: ap-chengdu
         run: |
           sudo pip install coscmd
-          coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+          coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
           coscmd upload -rs --delete ./dist/ / -f
