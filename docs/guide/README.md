@@ -1,14 +1,19 @@
 ---
+title: 主要功能与配置演示
+index: false
 icon: creative
-category: Guide
+category:
+  - 使用指南
 ---
 
-# Guides
+## 目录
 
-- [Page Config](page.md)
+- [Markdown 展示](markdown.md)
 
-- [Markdown Enhance](markdown.md)
+- [页面展示](page.md)
 
-- [Function Disable](disable.md)
+- [禁用展示](disable.md)
 
-- [Encryption Demo](encrypt.md)
+- [加密展示](encrypt.md)
+
+- [幻灯片展示](slide.md)

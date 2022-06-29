@@ -68,9 +68,5 @@ jobs:
           REGION: ap-chengdu
         run: |
           sudo pip install coscmd
-          echo ${SECRET_ID}
-          echo ${SECRET_KEY}
-          echo ${BUCKET}
-          echo ${REGION}
           coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
-          coscmd upload -rs --delete ./dist/ / -f
+          coscmd upload -rs --delete ./docs/.vuepress/dist/ / -f

@@ -1,213 +1,373 @@
 ---
+title: Markdown 展示
 icon: markdown
-title: Markdown Enhance
-category: Guide
+order: 2
+category:
+  - 使用指南
 tag:
-  - markdown
+  - Markdown
 ---
 
-`vuepress-theme-hope` enables more syntax in Markdown via the built-in [md-enhance](https://vuepress-theme-hope.github.io/v1/md-enhance/) plugin.
+VuePress 主要从 Markdown 文件生成页面。因此，你可以使用它轻松生成文档或博客站点。
+
+你应该创建和编写 Markdown 文件，以便 VuePress 可以根据文件结构将它们转换为不同的页面。
 
 <!-- more -->
 
-## Enable all
+## Markdown 介绍
 
-You can set `themeconfig.mdEnhance.enableAll` to enable all features of the [md-enhance](https://vuepress-theme-hope.github.io/v1/md-enhance/) plugin.
+如果你是一个新手，还不会编写 Markdown，请先阅读 [Markdown 介绍](https://vuepress-theme-hope.github.io/v2/zh/cookbook/markdown/) 和 [Markdown 演示](https://vuepress-theme-hope.github.io/v2/zh/cookbook/markdown/demo.html)。
 
-```js {3-5}
-module.exports = {
-  themeConfig: {
-    mdEnhance: {
-      enableAll: true,
+## Markdown 配置
+
+VuePress 通过 Frontmatter 为每个 Markdown 页面引入配置。
+
+::: info
+
+Frontmatter 是 VuePress 中很重要的一个概念，如果你不了解它，你需要阅读 [Frontmatter 介绍](https://vuepress-theme-hope.github.io/v2/zh/cookbook/vuepress/page.html#front-matter)。
+
+:::
+
+## Markdown 扩展
+
+VuePress 会使用 [markdown-it](https://github.com/markdown-it/markdown-it) 来解析 Markdown 内容，因此可以借助于 markdown-it 插件来实现 [语法扩展](https://github.com/markdown-it/markdown-it#syntax-extensions) 。
+
+### VuePress 扩展
+
+为了丰富文档写作，VuePress 对 Markdown 语法进行了扩展。
+
+关于这些扩展，请阅读 [VuePress 中的 Markdown 扩展](https://vuepress-theme-hope.github.io/v2/zh/cookbook/vuepress/markdown.html)。
+
+### 主题扩展
+
+通过 [`vuepress-plugin-md-enhance`][md-enhance]，主题扩展了更多 Markdown 语法，提供更加丰富的写作功能。
+
+:::: tip 一键启用
+
+你可以设置在主题选项中设置 `plugins.mdEnhance.enableAll: true` 启用 [md-enhance][md-enhance] 插件的所有功能。
+
+::: code-tabs#language
+
+@tab TS
+
+```ts
+import { hopeTheme } from "vuepress-theme-hope";
+
+export default {
+  theme: hopeTheme({
+    plugins: {
+      mdEnhance: {
+        enableAll: true,
+      },
     },
+  }),
+};
+```
+
+@tab JS
+
+```js
+const { hopeTheme } = require("vuepress-theme-hope");
+
+module.exports = {
+  theme: hopeTheme({
+    plugins: {
+      mdEnhance: {
+        enableAll: true,
+      },
+    },
+  }),
+};
+```
+
+:::
+
+::::
+
+#### 自定义容器
+
+::: v-pre
+
+安全的在 Markdown 中使用 {{ variable }}。
+
+:::
+
+::: info 自定义标题
+
+信息容器，包含 `代码` 与 [链接](#markdown)。
+
+```js
+const a = 1;
+```
+
+:::
+
+::: tip 自定义标题
+
+提示容器
+
+:::
+
+::: warning 自定义标题
+
+警告容器
+
+:::
+
+::: danger 自定义标题
+
+危险容器
+
+:::
+
+::: details 自定义标题
+
+详情容器
+
+:::
+
+:::: details 代码
+
+```md
+::: v-pre
+
+安全的在 Markdown 中使用 {{ variable }}。
+
+:::
+
+::: info 自定义标题
+
+信息容器
+
+:::
+
+::: tip 自定义标题
+
+提示容器
+
+:::
+
+::: warning 自定义标题
+
+警告容器
+
+:::
+
+::: danger 自定义标题
+
+危险容器
+
+:::
+
+::: details 自定义标题
+
+详情容器
+
+:::
+```
+
+::::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/container.html)
+
+#### 代码块
+
+::: code-tabs
+
+@tab pnpm
+
+```bash
+pnpm add -D vuepress-theme-hope
+```
+
+@tab yarn
+
+```bash
+yarn add -D vuepress-theme-hope
+```
+
+@tab:active npm
+
+```bash
+npm i -D vuepress-theme-hope
+```
+
+:::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/code-tabs.html)
+
+#### 自定义对齐
+
+::: center
+
+我是居中的
+
+:::
+
+::: right
+
+我在右对齐
+
+:::
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/align.html)
+
+#### 上下角标
+
+19^th^ H~2~O
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/sup-sub.html)
+
+#### 脚注
+
+此文字有脚注[^first].
+
+[^first]: 这是脚注内容
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/footnote.html)
+
+#### 标记
+
+你可以标记 ==重要的内容== 。
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mark.html)
+
+#### 任务列表
+
+- [x] 计划 1
+- [ ] 计划 2
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tasklist.html)
+
+### 图片增强
+
+支持为图片设置颜色模式和大小
+
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/image.html)
+
+#### 图表
+
+::: chart 一个散点图案例
+
+```json
+{
+  "type": "scatter",
+  "data": {
+    "datasets": [
+      {
+        "label": "散点数据集",
+        "data": [
+          { "x": -10, "y": 0 },
+          { "x": 0, "y": 10 },
+          { "x": 10, "y": 5 },
+          { "x": 0.5, "y": 5.5 }
+        ],
+        "backgroundColor": "rgb(255, 99, 132)"
+      }
+    ]
   },
-};
-```
-
-## New Feature
-
-### Superscript and Subscript
-
-19^th^ H~2~O
-
-::: details Code
-
-```md
-19^th^ H~2~O
+  "options": {
+    "scales": {
+      "x": {
+        "type": "linear",
+        "position": "bottom"
+      }
+    }
+  }
+}
 ```
 
 :::
 
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/sup-sub.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/chart.html)
 
-### Align
+#### Echarts
 
-::: center
+::: echarts 一个折线图案例
 
-I am center
-
-:::
-
-::: right
-
-I am right align
-
-:::
-
-:::: details Code
-
-```md
-::: center
-
-I am center
-
-:::
-
-::: right
-
-I am right align
-
-:::
-```
-
-::::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/align.html)
-
-### Footnote
-
-This text has footnote[^first].
-
-[^first]: This is footnote content
-
-::: details Code
-
-```md
-This text has footnote[^first].
-
-[^first]: This is footnote content
+```json
+{
+  "xAxis": {
+    "type": "category",
+    "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+  },
+  "yAxis": {
+    "type": "value"
+  },
+  "series": [
+    {
+      "data": [150, 230, 224, 218, 135, 147, 260],
+      "type": "line"
+    }
+  ]
+}
 ```
 
 :::
 
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/footnote.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/echarts.html)
 
-### Mark
-
-You can mark ==important words== .
-
-::: details Code
-
-```md
-You can mark ==important words== .
-```
-
-:::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/mark.html)
-
-### Tasklist
-
-- [x] Plan A
-- [ ] Plan B
-
-::: details Code
-
-```md
-- [x] Plan A
-- [ ] Plan B
-```
-
-:::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/tasklist.html)
-
-### Flowchart
+#### 流程图
 
 ```flow
-cond=>condition: Process?
-process=>operation: Process
-e=>end: End
+cond=>condition: 是否执行操作?
+process=>operation: 操作
+e=>end: 结束
 
 cond(yes)->process->e
 cond(no)->e
 ```
 
-::: details Code
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/flowchart.html)
 
-````md
-```flow
-cond=>condition: Process?
-process=>operation: Process
-e=>end: End
-
-cond(yes)->process->e
-cond(no)->e
-```
-````
-
-:::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/flowchart.html)
-
-## Mermaid
+#### Mermaid
 
 ```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
+flowchart TB
+    c1-->a2
+    subgraph one
+    a1-->a2
+    end
+    subgraph two
+    b1-->b2
+    end
+    subgraph three
+    c1-->c2
+    end
+    one --> two
+    three --> two
+    two --> c2
 ```
 
-::: details Code
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/mermaid.html)
 
-````md
-```mermaid
-graph TD;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
-````
-
-:::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/mermaid.html)
-
-### Tex
+#### Tex 语法
 
 $$
 \frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
 = \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
 $$
 
-::: details Code
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/tex.html)
 
-```md
-$$
-\frac {\partial^r} {\partial \omega^r} \left(\frac {y^{\omega}} {\omega}\right)
-= \left(\frac {y^{\omega}} {\omega}\right) \left\{(\log y)^r + \sum_{i=1}^r \frac {(-1)^i r \cdots (r-i+1) (\log y)^{r-i}} {\omega^i} \right\}
-$$
-```
+#### 导入文件
 
-:::
+@include(./README.md{11-17})
 
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/tex.html)
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/include.html)
 
-### Demo
+#### 代码演示
 
-::: normal-demo A normal demo
+::: normal-demo 一个普通 Demo
 
 ```html
-<h1>Mr.Hope</h1>
-<p>Is <span id="very">very</span> handsome</p>
+<h1>VuePress Theme Hope</h1>
+<p><span id="very">非常</span>强大!</p>
 ```
 
 ```js
 document.querySelector("#very").addEventListener("click", () => {
-  alert("Very handsome!");
+  alert("非常强大");
 });
 ```
 
@@ -219,219 +379,36 @@ span {
 
 :::
 
-:::: details Code
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/demo.html)
 
-````md
-::: normal-demo A normal demo
+#### 样式化
 
-```html
-<h1>Mr.Hope</h1>
-<p>Is <span id="very">very</span> handsome</p>
-```
+<!-- markdownlint-disable MD033 -->
 
-```js
-document.querySelector("#very").addEventListener("click", () => {
-  alert("Very handsome!");
-});
-```
+设置它<span style="color:red">没有</span>任何效果，请<span style="color:red">不要</span>这样使用
 
-```css
-span {
-  color: red;
-}
-```
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/stylize.html)
 
-:::
-````
+<!-- markdownlint-enable MD033 -->
 
-::::
-
-::: react-demo A react demo
-
-```js
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: "very handsome" };
-  }
-  render() {
-    return (
-      <div className="box-react">
-        Mr.Hope is <span>{this.state.message}</span>
-      </div>
-    );
-  }
-}
-```
-
-```css
-.box-react span {
-  color: red;
-}
-```
-
-:::
-
-:::: details Code
-
-````md
-::: react-demo A react demo
-
-```js
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { message: "very handsome" };
-  }
-  render() {
-    return (
-      <div className="box-react">
-        Mr.Hope is <span>{this.state.message}</span>
-      </div>
-    );
-  }
-}
-```
-
-```css
-.box-react span {
-  color: red;
-}
-```
-
-:::
-````
-
-::::
-
-::: vue-demo A vue demo
-
-```vue
-<template>
-  <div class="box">
-    Mr.Hope is <span>{{ message }}</span>
-  </div>
-</template>
-<script>
-export default {
-  data: () => ({ message: "very handsome" }),
-};
-</script>
-<style>
-.box span {
-  color: red;
-}
-</style>
-```
-
-:::
-
-:::: details Code
-
-````md
-::: vue-demo A vue demo
-
-```vue
-<template>
-  <div class="box">
-    Mr.Hope is <span>{{ message }}</span>
-  </div>
-</template>
-<script>
-export default {
-  data: () => ({ message: "very handsome" }),
-};
-</script>
-<style>
-.box span {
-  color: red;
-}
-</style>
-```
-
-:::
-````
-
-::::
-
-::: normal-demo A normal demo
-
-```md
-# Title
-
-is very handsome.
-```
-
-```ts
-const message: string = "Mr.Hope";
-
-document.querySelector("h1").innerHTML = message;
-```
-
-```scss
-h1 {
-  font-style: italic;
-
-  + p {
-    color: red;
-  }
-}
-```
-
-:::
-
-:::: details Code
-
-````md
-::: normal-demo A normal demo
-
-```md
-# Title
-
-is very handsome.
-```
-
-```ts
-const message: string = "Mr.Hope";
-
-document.querySelector("h1").innerHTML = message;
-```
-
-```scss
-h1 {
-  font-style: italic;
-
-  + p {
-    color: red;
-  }
-}
-```
-
-:::
-````
-
-::::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/demo/)
-
-### Presentation
+#### 幻灯片
 
 @slidestart
 
-## Slide 1
+## 幻灯片 1
 
-A paragraph with some text and a [link](https://mrhope.site)
-
----
-
-## Slide 2
-
-- Item 1
-- Item 2
+一个有文字和 [链接](https://mrhope.site) 的段落
 
 ---
 
-## Slide 3.1
+## 幻灯片 2
+
+- 项目 1
+- 项目 2
+
+---
+
+## 幻灯片 3.1
 
 ```js
 const a = 1;
@@ -439,7 +416,7 @@ const a = 1;
 
 --
 
-## Slide 3.2
+## 幻灯片 3.2
 
 $$
 J(\theta_0,\theta_1) = \sum_{i=0}
@@ -447,109 +424,6 @@ $$
 
 @slideend
 
-::: details Code
+- [查看详情](https://vuepress-theme-hope.github.io/v2/zh/guide/markdown/presentation.html)
 
-````md
-@slidestart
-
-## Slide 1
-
-A paragraph with some text and a [link](https://mrhope.site)
-
----
-
-## Slide 2
-
-- Item 1
-- Item 2
-
----
-
-## Slide 3.1
-
-```js
-const a = 1;
-```
-
---
-
-## Slide 3.2
-
-$$
-J(\theta_0,\theta_1) = \sum_{i=0}
-$$
-
-@slideend
-````
-
-:::
-
-- [View Detail](https://vuepress-theme-hope.github.io/v1/guide/markdown/presentation/)
-
-## Other Syntax
-
-::: info custom title
-
-A custom information container
-
-:::
-
-::: tip custom title
-
-A custom tip container
-
-:::
-
-::: warning custom title
-
-A custom warning container
-
-:::
-
-::: danger custom Title
-
-A custom danger container
-
-:::
-
-::: details custom title
-
-A custom details container
-
-:::
-
-:::: details Code
-
-```md
-::: info custom title
-
-A custom information container
-
-:::
-
-::: tip custom title
-
-A custom tip container
-
-:::
-
-::: warning custom title
-
-A custom warning container
-
-:::
-
-::: danger custom Title
-
-A custom danger container
-
-:::
-
-::: details custom title
-
-A custom details container
-
-:::
-```
-
-::::
+[md-enhance]: https://vuepress-theme-hope.github.io/v2/md-enhance/zh/
