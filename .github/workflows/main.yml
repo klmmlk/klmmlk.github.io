@@ -64,5 +64,5 @@ jobs:
           REGION: ap-chengdu
         run: |
           sudo pip install coscmd
-          coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
+          coscmd config -a ${{ secrets.TENCENT_SECRET_ID }} -s ${{ secrets.TENCENT_SECRET_KEY }} -b ${{ secrets.TENCENT_COS_BUCKET }} -r ap-chengdu
           coscmd upload -rs --delete ./dist/ / -f
