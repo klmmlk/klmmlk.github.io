@@ -4,7 +4,7 @@ layout: Blog
 icon: home
 title: 博客主页
 bgImage: /backgroud.jpg
-heroImage: /logo.svg
+heroImage: /123.svg
 heroText: 丑八怪住进ICU
 heroFullScreen: false
 tagline: 我多么想和你见一面
