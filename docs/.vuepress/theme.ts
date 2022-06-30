@@ -4,7 +4,7 @@ import navbar from "./navbar";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-v2-demo.mrhope.site",
-
+  // iconAssets: "iconfont",
   // 主题色选择器
   themeColor: {
     blue: "#2196f3",
