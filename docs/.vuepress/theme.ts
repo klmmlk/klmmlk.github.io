@@ -5,6 +5,14 @@ import navbar from "./navbar";
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-v2-demo.mrhope.site",
 
+  // 主题色选择器
+  themeColor: {
+    blue: "#2196f3",
+    red: "#f26d6d",
+    green: "#3eaf7c",
+    orange: "#fb9b5f",
+  },
+
   author: {
     name: "Jiong.Lin",
     url: "https://JokerIn.ICU",
@@ -86,11 +94,11 @@ export default hopeTheme({
       /**
        * Using Giscus
        */
-/*       provider: "Giscus",
-      repo: "vuepress-theme-hope/giscus-discussions",
-      repoId: "R_kgDOG_Pt2A",
-      category: "Announcements",
-      categoryId: "DIC_kwDOG_Pt2M4COD69", */
+      /*       provider: "Giscus",
+            repo: "vuepress-theme-hope/giscus-discussions",
+            repoId: "R_kgDOG_Pt2A",
+            category: "Announcements",
+            categoryId: "DIC_kwDOG_Pt2M4COD69", */
 
       /**
        * Using Twikoo
