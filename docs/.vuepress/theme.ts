@@ -83,6 +83,9 @@ export default hopeTheme({
   },
 
   plugins: {
+    //  @vuepress/plugin-git 插件，展示最后一次编译时间及贡献者
+    git: false,
+    
     blog: {
       autoExcerpt: true,
     },
