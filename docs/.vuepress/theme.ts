@@ -32,15 +32,16 @@ export default hopeTheme({
   // sidebar
   // sidebar: sidebar,
 
-  footer: "<a href='https://beian.miit.gov.cn/' target='_blank'>蜀ICP备2022015942号-1</a>",
+  footer: '<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022015942号-1</a>  <span>本页浏览量:</span> <span class="waline-pageview-count" />',
 
   displayFooter: true,
 
   pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
   blog: {
+    timeline: "与你再次相逢",
     description: "银河系极值矛盾体",
-    intro: "/intro.html",
+    // intro: "/intro.html",
     avatar: "/avatar.jpg",
     roundAvatar: true,
     medias: {
@@ -114,6 +115,9 @@ export default hopeTheme({
        */
       provider: "Waline",
       serverURL: "https://vercel.jokerin.icu/",
+      wordLimit: 300,
+      pageview: true,
+
     },
 
     mdEnhance: {
