@@ -5,6 +5,7 @@ export default navbar([
   { text: "时间线", icon: "footnote", link: "/timeline/" },
   { text: "友情链接", icon: "group", link: "/links/" },
   { text: "使用指南", icon: "creative", link: "/guide/" },
+  { text: "代码学习", icon: "creative", link: "/code/" },
 
 
 /*   {
