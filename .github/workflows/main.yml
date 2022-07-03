@@ -51,4 +51,4 @@ jobs:
         run: |
           sudo pip install coscmd
           coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
-          coscmd upload -rs --delete ./docs/.vuepress/dist/ / -f
+          coscmd upload -rs --skipmd5 --delete ./docs/.vuepress/dist/ / -f
