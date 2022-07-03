@@ -1,6 +1,6 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import navbar from "./navbar";
-import sidebar from "./sidebar";
+import { userSidebar } from "./sidebar";
 
 export default hopeTheme({
   hostname: "https://vuepress-theme-hope-v2-demo.mrhope.site",
@@ -30,7 +30,7 @@ export default hopeTheme({
   navbar: navbar,
 
   // sidebar
-  sidebar: sidebar,
+  sidebar: userSidebar,
 
   footer: '<a href="https://beian.miit.gov.cn/" target="_blank">蜀ICP备2022015942号-1</a>  <span>本页浏览量:</span> <span class="waline-pageview-count" />',
 
